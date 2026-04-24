@@ -1,436 +1,744 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const currently = [
+	{ label: 'Role', value: 'Software Developer @ Wipfli LLP' },
+	{ label: 'Focus', value: 'AI orchestration · ERP/CRM · agentic apps' },
+	{ label: 'Based', value: 'Lake Elmo, Minnesota' },
+];
+
+const capabilities = [
+	{
+		title: 'AI orchestration & agentic apps',
+		copy: "Designing and shipping agentic systems and orchestration layers — tool-use, retrieval, evaluation — that plug into the firm's production consulting engagements.",
+	},
+	{
+		title: 'Enterprise ERP & CRM delivery',
+		copy: 'Implementations across Microsoft Business Central (AL), Sage Intacct, Salesforce, SAP, and Concur. C#/.NET for customizations, integrations, and line-of-business tooling.',
+	},
+	{
+		title: 'Full-stack & cloud',
+		copy: 'End-to-end product work — APIs, web UIs, data stores, and AWS deployment. Certified on AWS, with Azure experience from shipping to Microsoft AppSource.',
+	},
+];
+
+const featured = {
+	eyebrow: 'Selected work',
+	title: 'AppSource punchout eProcurement for Business Central',
+	copy: 'Sole developer on an end-to-end Microsoft AppSource application — a punchout eProcurement solution for Business Central. Designed, built, deployed to Azure, and shipped independently over six months.',
+	meta: [
+		{ k: 'Role', v: 'Sole developer' },
+		{ k: 'Stack', v: 'AL · C# · Azure · AppSource' },
+		{ k: 'Duration', v: '6 months' },
+		{ k: 'Status', v: 'Shipped' },
+	],
+};
+
 const experience = [
 	{
 		company: 'Wipfli LLP',
-		location: 'Minneapolis, MN',
 		role: 'Software Developer',
-		period: 'Jan 2026 — Present',
-		bullets: [
-			'Develop, test, and ship AI orchestration and agentic applications.',
-			'Full-time member of the ERP and CRM consulting practice; deliver implementations across Business Central, Sage Intacct, Salesforce, Concur, and SAP.',
-			'Sole developer of an end-to-end Microsoft AppSource punchout eProcurement application for Business Central — designed, built, and shipped independently over six months.',
-			'Personally manage cross-functional engagements and go-to-market strategy.',
-		],
+		period: '2026 — Now',
+		copy: 'Ship AI orchestration and agentic applications. Full-time in the ERP and CRM consulting practice across Business Central, Sage Intacct, Salesforce, Concur, and SAP. Personally manage cross-functional engagements and go-to-market strategy.',
 	},
 	{
 		company: 'Wipfli LLP',
-		location: 'Minneapolis, MN',
 		role: 'Software Developer Intern',
-		period: 'Jun 2024 — Dec 2025',
-		bullets: [
-			'Full-time summers 2024 and 2025; part-time during spring and fall academic semesters.',
-			'Contributed to enterprise ERP and accounting software across multiple client engagements in a C# .NET environment.',
-			'Rotated through business units, developing cross-functional exposure to ERP, CRM, and financial systems consulting.',
-			'Networked with firm partners and managed client-facing communications independently.',
-		],
+		period: '2024 — 2025',
+		copy: 'Built enterprise ERP and accounting software across multiple client engagements in C# .NET. Rotated through business units; picked up cross-functional exposure to ERP, CRM, and financial systems consulting. Full-time summers, part-time during academic semesters.',
 	},
 	{
 		company: 'M&E Catalyst Group',
-		location: 'Minneapolis, MN',
 		role: 'Financial Paraplanner · MassMutual Affiliate',
-		period: 'Feb 2021 — Feb 2022',
-		bullets: [
-			'Prepared end-to-end financial plans and compliance documentation for 40+ named clients.',
-			'Authored a custom software tool to automate data migration and overhaul internal data-storage architecture.',
-			'Passed the SIE, Series 7, and Series 66 examinations during tenure.',
-			'Managed direct client relationships; conducted needs assessments and delivered tailored financial roadmaps.',
-		],
+		period: '2021 — 2022',
+		copy: 'Prepared end-to-end financial plans and compliance documentation for 40+ named clients. Authored a custom tool to automate data migration and overhaul internal data-storage architecture. Passed SIE, Series 7, and Series 66 during tenure.',
 	},
 	{
 		company: 'Feller Restaurant',
-		location: 'Stillwater, MN',
 		role: 'Server',
-		period: 'Feb 2022 — Aug 2022',
-		bullets: [
-			'Front-of-house service at an upscale fine-dining establishment; managed full-cycle guest experience.',
-			'Used the period to earn AWS Certified Cloud Developer certification and build up software portfolio.',
-		],
+		period: '2022',
+		copy: 'Front-of-house at an upscale fine-dining establishment. Used the period to earn AWS Certified Cloud Developer and build out a software portfolio.',
 	},
 ];
 
-const education = [
-	{
-		school: 'University of Wisconsin–Eau Claire',
-		location: 'Eau Claire, WI',
-		credential: 'B.S., Computer Science',
-		period: 'Sep 2022 — Dec 2025',
-		notes: [
-			'Major GPA: 3.2',
-			'Student Researcher — designed and developed an AI curling simulator; managed from inception to production.',
-			"Professor's Assistant — held office hours and supported peers through coursework and laboratory projects.",
-			'President, Chess Club.',
-		],
-	},
-	{
-		school: 'St. Croix Preparatory Academy',
-		location: 'Stillwater, MN',
-		credential: 'Classical K–12 Education',
-		period: 'Graduated 2020',
-		notes: ['ACT: 35'],
-	},
+const stack = [
+	{ group: 'Languages', items: ['C#', 'C++', 'Python', 'Java', 'JavaScript', 'Node.js', 'Haskell', 'AL'] },
+	{ group: 'Platforms', items: ['Business Central', 'Sage Intacct', 'Salesforce', 'SAP', 'Concur'] },
+	{ group: 'Cloud & Data', items: ['AWS', 'Azure', 'MySQL', 'MongoDB', 'DynamoDB'] },
+	{ group: 'Credentials', items: ['AWS Certified Cloud Developer', 'CFA Level I', 'CRD 7335702', 'Russian B2/C1'] },
 ];
 
-const skills = [
-	{ group: 'Languages', items: 'C#, C++, Python, Java, JavaScript / Node.js, Haskell, AL (Business Central)' },
-	{ group: 'ERP / CRM', items: 'Business Central, Sage Intacct, Salesforce, SAP, Concur' },
-	{ group: 'Databases', items: 'MySQL, MongoDB, DynamoDB' },
-	{ group: 'Cloud', items: 'AWS (certified), Azure (AppSource deployment)' },
+const elsewhere = [
+	{ title: 'Eau Claire', detail: 'B.S. Computer Science, University of Wisconsin–Eau Claire (2025). AI curling simulator research; Professor\u2019s Assistant; President, Chess Club.' },
+	{ title: 'Markets', detail: 'Independent trader since 2021 — equities, options, commodities. CFA Level I passed Feb 2026.' },
+	{ title: 'Outside', detail: 'UW Master Naturalist program. Russian literature. Competitive chess. Big Brothers Big Sisters.' },
 ];
-
-const certifications = [
-	'CFA Candidate — Level I passed (February 2026)',
-	'AWS Certified Cloud Developer — Reg. No. 2169084',
-	'SIE / Series 7 / Series 66 — passed; lapsed',
-	'Russian Language — B2 / C1 proficiency',
-];
-
-const activities = [
-	{ title: 'UW Master Naturalist Program', detail: 'Currently enrolled; 8-session all-day volunteer and education curriculum.' },
-	{ title: 'Independent Trading & Investing', detail: 'Active since 2021 — equities, options, commodities.' },
-	{ title: 'Big Brothers Big Sisters', detail: 'Volunteer Big.' },
-	{ title: 'Chess', detail: 'Club president; competitive player.' },
-];
-
-const interests = 'Quantum computing & financial markets · Writing & independent research · Russian language & literature · Camping, hiking & wilderness · Chess · History & classical philosophy · Sustainable agriculture';
 ---
 
 <Layout>
-	<div class="page" id="top">
-		<header class="masthead">
-			<h1 class="name">Liam White</h1>
-			<p class="subtitle">Software Developer · Lake Elmo, Minnesota</p>
-			<nav class="toc">
-				<a href="#about">About</a>
-				<span>·</span>
+	<div class="wrapper" id="top">
+		<header class="topbar">
+			<a href="#top" class="brand mono">LW</a>
+			<nav>
+				<a href="#work">Work</a>
 				<a href="#experience">Experience</a>
-				<span>·</span>
-				<a href="#education">Education</a>
-				<span>·</span>
-				<a href="#skills">Skills</a>
-				<span>·</span>
-				<a href="#activities">Activities</a>
-				<span>·</span>
+				<a href="#stack">Stack</a>
 				<a href="#contact">Contact</a>
-				<span>·</span>
-				<a href="/LiamWhite-Resume.pdf" download>Résumé (PDF)</a>
 			</nav>
+			<a class="topbar-cta mono" href="/LiamWhite-Resume.pdf" download>Résumé ↓</a>
 		</header>
 
-		<section id="about" class="section">
-			<h2>About.</h2>
-			<p>
-				I am a software developer at <a href="https://www.wipfli.com" target="_blank" rel="noreferrer">Wipfli LLP</a>,
-				working inside the firm's ERP and CRM consulting practice. My day-to-day is split between shipping
-				AI orchestration and agentic applications and delivering implementations across Business Central,
-				Sage Intacct, Salesforce, Concur, and SAP.
-			</p>
-			<p>
-				Before software I spent a year as a financial paraplanner under a MassMutual affiliate, preparing
-				end-to-end plans for 40+ clients and passing the SIE, Series 7, and Series 66. That thread is still
-				active: I passed the CFA Level I in February 2026 and trade my own book in equities, options, and
-				commodities.
-			</p>
-			<p>
-				Outside work I read Russian literature, play competitive chess, and spend as many weekends as I can
-				in the wilderness — currently working through the UW Master Naturalist curriculum.
-			</p>
-		</section>
-
-		<section id="experience" class="section">
-			<h2>Experience.</h2>
-			{experience.map((job) => (
-				<article class="entry">
-					<header class="entry-head">
-						<div class="entry-title">
-							<strong>{job.company}</strong>, {job.location}.
-							<em>{job.role}.</em>
+		<main>
+			<section class="hero">
+				<div class="status">
+					<span class="dot" aria-hidden="true"></span>
+					<span class="mono">Open to conversations · Minneapolis / remote</span>
+				</div>
+				<h1>
+					Software developer building at the seam between
+					<span class="accent">enterprise systems</span> and
+					<span class="accent">capital markets</span>.
+				</h1>
+				<p class="lede">
+					I'm Liam White. I ship AI orchestration and agentic applications inside Wipfli's
+					ERP and CRM consulting practice — and I trade my own book on the side.
+					Background in finance, credentials in both, an appetite for the kind of
+					software that has to survive contact with real operators.
+				</p>
+				<div class="hero-actions">
+					<a class="btn btn-primary" href="#contact">Get in touch</a>
+					<a class="btn btn-ghost" href="/LiamWhite-Resume.pdf" download>Download résumé</a>
+				</div>
+				<dl class="currently">
+					{currently.map((c) => (
+						<div>
+							<dt class="mono">{c.label}</dt>
+							<dd>{c.value}</dd>
 						</div>
-						<div class="entry-period mono">{job.period}</div>
-					</header>
-					<ul>
-						{job.bullets.map((b) => <li>{b}</li>)}
-					</ul>
-				</article>
-			))}
-		</section>
+					))}
+				</dl>
+			</section>
 
-		<section id="education" class="section">
-			<h2>Education.</h2>
-			{education.map((ed) => (
-				<article class="entry">
-					<header class="entry-head">
-						<div class="entry-title">
-							<strong>{ed.school}</strong>, {ed.location}.
-							<em>{ed.credential}.</em>
+			<section id="work" class="section">
+				<div class="section-label mono"><span>01</span><span>What I do</span></div>
+				<div class="capabilities">
+					{capabilities.map((c) => (
+						<article class="capability">
+							<h3>{c.title}</h3>
+							<p>{c.copy}</p>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="section">
+				<div class="section-label mono"><span>02</span><span>{featured.eyebrow}</span></div>
+				<article class="featured">
+					<h2>{featured.title}</h2>
+					<p>{featured.copy}</p>
+					<dl class="meta-grid">
+						{featured.meta.map((m) => (
+							<div>
+								<dt class="mono">{m.k}</dt>
+								<dd>{m.v}</dd>
+							</div>
+						))}
+					</dl>
+				</article>
+			</section>
+
+			<section id="experience" class="section">
+				<div class="section-label mono"><span>03</span><span>Experience</span></div>
+				<ol class="timeline">
+					{experience.map((e) => (
+						<li>
+							<div class="timeline-period mono">{e.period}</div>
+							<div class="timeline-body">
+								<h3>
+									{e.role}
+									<span class="timeline-sep">·</span>
+									<span class="timeline-company">{e.company}</span>
+								</h3>
+								<p>{e.copy}</p>
+							</div>
+						</li>
+					))}
+				</ol>
+			</section>
+
+			<section id="stack" class="section">
+				<div class="section-label mono"><span>04</span><span>Stack &amp; credentials</span></div>
+				<div class="stack-grid">
+					{stack.map((s) => (
+						<div class="stack-group">
+							<h4 class="mono">{s.group}</h4>
+							<p>{s.items.join(' · ')}</p>
 						</div>
-						<div class="entry-period mono">{ed.period}</div>
-					</header>
-					<ul>
-						{ed.notes.map((n) => <li>{n}</li>)}
-					</ul>
-				</article>
-			))}
-		</section>
+					))}
+				</div>
+			</section>
 
-		<section id="skills" class="section">
-			<h2>Skills &amp; Certifications.</h2>
-			<dl class="deflist">
-				{skills.map((s) => (
-					<>
-						<dt>{s.group}</dt>
-						<dd>{s.items}</dd>
-					</>
-				))}
-				<dt>Certifications</dt>
-				<dd>
-					<ul class="inline">
-						{certifications.map((c) => <li>{c}</li>)}
-					</ul>
-				</dd>
-			</dl>
-		</section>
+			<section class="section">
+				<div class="section-label mono"><span>05</span><span>Elsewhere</span></div>
+				<div class="elsewhere">
+					{elsewhere.map((e) => (
+						<div>
+							<h4>{e.title}</h4>
+							<p>{e.detail}</p>
+						</div>
+					))}
+				</div>
+			</section>
 
-		<section id="activities" class="section">
-			<h2>Activities &amp; Interests.</h2>
-			<dl class="deflist">
-				{activities.map((a) => (
-					<>
-						<dt>{a.title}</dt>
-						<dd>{a.detail}</dd>
-					</>
-				))}
-			</dl>
-			<p class="interests">{interests}</p>
-		</section>
+			<section id="contact" class="section contact">
+				<div class="section-label mono"><span>06</span><span>Contact</span></div>
+				<h2>Let's talk.</h2>
+				<p class="contact-lede">
+					AI orchestration, ERP/CRM, quantitative work, or anything at the intersection
+					of software and markets — I'm reachable.
+				</p>
+				<ul class="contact-list">
+					<li>
+						<span class="mono">email</span>
+						<a href="mailto:wLiamWhite@gmail.com">wLiamWhite@gmail.com</a>
+					</li>
+					<li>
+						<span class="mono">phone</span>
+						<a href="tel:+16512337192">+1 651 233 7192</a>
+					</li>
+					<li>
+						<span class="mono">résumé</span>
+						<a href="/LiamWhite-Resume.pdf" download>LiamWhite-Resume.pdf ↓</a>
+					</li>
+				</ul>
+			</section>
+		</main>
 
-		<section id="contact" class="section">
-			<h2>Contact.</h2>
-			<dl class="deflist">
-				<dt>Email</dt>
-				<dd><a href="mailto:wLiamWhite@gmail.com">wLiamWhite@gmail.com</a></dd>
-				<dt>Telephone</dt>
-				<dd><a href="tel:+16512337192">651.233.7192</a></dd>
-				<dt>Résumé</dt>
-				<dd><a href="/LiamWhite-Resume.pdf" download>LiamWhite-Resume.pdf</a></dd>
-				<dt>CRD</dt>
-				<dd>7335702</dd>
-			</dl>
-		</section>
-
-		<footer class="colophon">
-			<hr />
-			<p>
-				<span>Liam White · Lake Elmo, Minnesota · {new Date().getFullYear()}</span>
-				<span><a href="#top">↑ top</a></span>
-			</p>
+		<footer class="footer mono">
+			<span>© {new Date().getFullYear()} Liam White</span>
+			<span>Lake Elmo, MN</span>
+			<a href="#top">↑ top</a>
 		</footer>
 	</div>
 </Layout>
 
 <style>
-	.page {
-		max-width: 720px;
+	.wrapper {
+		max-width: 1080px;
 		margin: 0 auto;
-		padding: 56px 28px 80px;
+		padding: 0 32px;
 	}
 
-	/* Masthead */
-	.masthead {
-		border-bottom: 2px solid var(--rule);
-		padding-bottom: 20px;
-		margin-bottom: 48px;
+	/* Topbar */
+	.topbar {
+		position: sticky;
+		top: 0;
+		z-index: 20;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 64px;
+		background: rgba(11, 13, 16, 0.78);
+		backdrop-filter: saturate(140%) blur(10px);
+		-webkit-backdrop-filter: saturate(140%) blur(10px);
+		border-bottom: 1px solid var(--rule);
+		margin: 0 -32px;
+		padding: 0 32px;
 	}
 
-	.name {
-		font-size: 36px;
-		font-weight: 700;
-		letter-spacing: 0;
-		line-height: 1.15;
-		margin: 0 0 4px;
+	.brand {
+		font-weight: 600;
+		font-size: 14px;
+		color: var(--ink);
+		letter-spacing: 0.12em;
 	}
 
-	.subtitle {
-		font-style: italic;
+	.topbar nav {
+		display: flex;
+		gap: 28px;
+	}
+
+	.topbar nav a {
+		font-size: 14px;
 		color: var(--ink-soft);
-		margin: 0 0 16px;
-		font-size: 16px;
+		font-weight: 500;
 	}
 
-	.toc {
-		font-size: 15px;
+	.topbar nav a:hover {
+		color: var(--ink);
+	}
+
+	.topbar-cta {
+		font-size: 13px;
+		color: var(--ink);
+		padding: 8px 14px;
+		border: 1px solid var(--rule-strong);
+		border-radius: 6px;
+		transition: all 0.15s ease;
+	}
+
+	.topbar-cta:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	/* Hero */
+	.hero {
+		padding: 96px 0 80px;
+		max-width: 860px;
+	}
+
+	.status {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		padding: 6px 12px;
+		background: var(--bg-elevated);
+		border: 1px solid var(--rule);
+		border-radius: 999px;
+		font-size: 12px;
+		color: var(--ink-soft);
+		margin-bottom: 36px;
+	}
+
+	.dot {
+		width: 7px;
+		height: 7px;
+		background: #6cd77a;
+		border-radius: 50%;
+		box-shadow: 0 0 0 3px rgba(108, 215, 122, 0.18);
+	}
+
+	.hero h1 {
+		font-size: clamp(40px, 6vw, 72px);
+		line-height: 1.04;
+		margin: 0 0 28px;
+		font-weight: 600;
+		letter-spacing: -0.03em;
+	}
+
+	.hero h1 .accent {
+		color: var(--accent);
+		font-style: normal;
+	}
+
+	.lede {
+		font-size: 19px;
+		line-height: 1.6;
+		color: var(--ink-soft);
+		margin: 0 0 40px;
+		max-width: 680px;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+		margin-bottom: 64px;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		padding: 12px 20px;
+		font-size: 14px;
+		font-weight: 500;
+		border-radius: 8px;
+		border: 1px solid transparent;
+		transition: all 0.15s ease;
+	}
+
+	.btn-primary {
+		background: var(--accent);
+		color: #1a1208;
+	}
+
+	.btn-primary:hover {
+		background: var(--accent-soft);
+		color: #1a1208;
+	}
+
+	.btn-ghost {
+		background: transparent;
+		color: var(--ink);
+		border-color: var(--rule-strong);
+	}
+
+	.btn-ghost:hover {
+		color: var(--ink);
+		border-color: var(--ink-soft);
+		background: var(--bg-elevated);
+	}
+
+	.currently {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+		padding: 24px 0 0;
+		border-top: 1px solid var(--rule);
+		margin: 0;
+	}
+
+	.currently > div {
+		margin: 0;
+	}
+
+	.currently dt {
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
 		color: var(--ink-muted);
-		line-height: 1.9;
+		margin-bottom: 6px;
 	}
 
-	.toc a {
-		color: var(--link);
-	}
-
-	.toc span {
-		margin: 0 6px;
-		color: var(--rule-soft);
+	.currently dd {
+		margin: 0;
+		font-size: 15px;
+		color: var(--ink);
 	}
 
 	/* Sections */
 	.section {
-		margin-bottom: 44px;
+		padding: 80px 0;
+		border-top: 1px solid var(--rule);
+	}
+
+	.section-label {
+		display: flex;
+		gap: 14px;
+		font-size: 12px;
+		color: var(--ink-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		margin-bottom: 36px;
+	}
+
+	.section-label span:first-child {
+		color: var(--accent);
 	}
 
 	.section h2 {
-		font-size: 22px;
-		font-weight: 700;
-		border-bottom: 1px solid var(--rule);
-		padding-bottom: 4px;
-		margin: 0 0 20px;
+		font-size: clamp(28px, 3.4vw, 40px);
+		margin: 0 0 18px;
+		letter-spacing: -0.02em;
 	}
 
-	.section p {
-		margin: 0 0 14px;
-	}
-
-	.section p:last-child {
-		margin-bottom: 0;
-	}
-
-	/* Entries (experience + education) */
-	.entry {
-		margin-bottom: 28px;
-	}
-
-	.entry:last-child {
-		margin-bottom: 0;
-	}
-
-	.entry-head {
-		display: flex;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 16px;
-		margin-bottom: 6px;
-	}
-
-	.entry-title {
-		line-height: 1.4;
-	}
-
-	.entry-title strong {
-		font-weight: 700;
-	}
-
-	.entry-title em {
-		font-style: italic;
-		color: var(--ink-soft);
-	}
-
-	.entry-period {
-		font-size: 13px;
-		color: var(--ink-muted);
-		white-space: nowrap;
-		flex-shrink: 0;
-	}
-
-	.entry ul {
-		list-style: disc;
-		padding-left: 22px;
-		margin: 6px 0 0;
-	}
-
-	.entry li {
-		margin-bottom: 4px;
-		line-height: 1.5;
-	}
-
-	.entry li:last-child {
-		margin-bottom: 0;
-	}
-
-	/* Definition lists */
-	.deflist {
+	/* Capabilities */
+	.capabilities {
 		display: grid;
-		grid-template-columns: 180px 1fr;
-		gap: 8px 20px;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px;
+	}
+
+	.capability {
+		padding: 28px;
+		background: var(--bg-elevated);
+		border: 1px solid var(--rule);
+		border-radius: 12px;
+		transition: all 0.2s ease;
+	}
+
+	.capability:hover {
+		border-color: var(--rule-strong);
+		background: var(--bg-hover);
+	}
+
+	.capability h3 {
+		font-size: 18px;
+		margin: 0 0 12px;
+		font-weight: 600;
+	}
+
+	.capability p {
+		margin: 0;
+		color: var(--ink-soft);
+		font-size: 15px;
+		line-height: 1.6;
+	}
+
+	/* Featured */
+	.featured {
+		padding: 40px;
+		background: var(--bg-elevated);
+		border: 1px solid var(--rule);
+		border-radius: 16px;
+	}
+
+	.featured h2 {
+		font-size: clamp(22px, 2.4vw, 32px);
 		margin: 0 0 16px;
 	}
 
-	.deflist dt {
-		font-weight: 700;
-	}
-
-	.deflist dd {
-		margin: 0;
+	.featured > p {
 		color: var(--ink-soft);
+		font-size: 17px;
+		line-height: 1.6;
+		margin: 0 0 28px;
+		max-width: 700px;
 	}
 
-	.deflist ul.inline {
+	.meta-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
+		margin: 0;
+		padding-top: 24px;
+		border-top: 1px solid var(--rule);
+	}
+
+	.meta-grid > div {
+		margin: 0;
+	}
+
+	.meta-grid dt {
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+		margin-bottom: 6px;
+	}
+
+	.meta-grid dd {
+		margin: 0;
+		font-size: 14px;
+		color: var(--ink);
+	}
+
+	/* Timeline */
+	.timeline {
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
 
-	.deflist ul.inline li {
-		margin-bottom: 2px;
+	.timeline li {
+		display: grid;
+		grid-template-columns: 140px 1fr;
+		gap: 32px;
+		padding: 28px 0;
+		border-bottom: 1px solid var(--rule);
 	}
 
-	.interests {
-		margin-top: 20px;
-		padding-top: 14px;
-		border-top: 1px dashed var(--rule-soft);
-		font-style: italic;
-		color: var(--ink-soft);
-		font-size: 15px;
+	.timeline li:first-child {
+		padding-top: 0;
 	}
 
-	/* Colophon */
-	.colophon {
-		margin-top: 72px;
+	.timeline li:last-child {
+		border-bottom: none;
 	}
 
-	.colophon hr {
-		border: none;
-		border-top: 2px solid var(--rule);
-		margin: 0 0 10px;
-	}
-
-	.colophon p {
-		display: flex;
-		justify-content: space-between;
+	.timeline-period {
 		font-size: 13px;
 		color: var(--ink-muted);
+		padding-top: 4px;
+	}
+
+	.timeline-body h3 {
+		font-size: 19px;
+		margin: 0 0 10px;
+		font-weight: 600;
+		line-height: 1.35;
+	}
+
+	.timeline-sep {
+		color: var(--ink-muted);
+		margin: 0 6px;
+	}
+
+	.timeline-company {
+		color: var(--accent);
+		font-weight: 500;
+	}
+
+	.timeline-body p {
+		margin: 0;
+		color: var(--ink-soft);
+		font-size: 15px;
+		line-height: 1.65;
+		max-width: 680px;
+	}
+
+	/* Stack */
+	.stack-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 32px 56px;
+	}
+
+	.stack-group h4 {
+		font-size: 12px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+		margin: 0 0 10px;
+		font-weight: 500;
+	}
+
+	.stack-group p {
+		margin: 0;
+		font-size: 16px;
+		color: var(--ink);
+		line-height: 1.7;
+	}
+
+	/* Elsewhere */
+	.elsewhere {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 28px;
+	}
+
+	.elsewhere h4 {
+		font-size: 15px;
+		margin: 0 0 8px;
+		font-weight: 600;
+	}
+
+	.elsewhere p {
+		margin: 0;
+		color: var(--ink-soft);
+		font-size: 14px;
+		line-height: 1.6;
+	}
+
+	/* Contact */
+	.contact h2 {
+		margin-bottom: 14px;
+	}
+
+	.contact-lede {
+		font-size: 18px;
+		color: var(--ink-soft);
+		margin: 0 0 32px;
+		max-width: 600px;
+	}
+
+	.contact-list {
+		list-style: none;
+		padding: 0;
 		margin: 0;
 	}
 
+	.contact-list li {
+		display: grid;
+		grid-template-columns: 100px 1fr;
+		align-items: baseline;
+		padding: 18px 0;
+		border-top: 1px solid var(--rule);
+		gap: 16px;
+	}
+
+	.contact-list li:last-child {
+		border-bottom: 1px solid var(--rule);
+	}
+
+	.contact-list .mono {
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--ink-muted);
+	}
+
+	.contact-list a {
+		font-size: 17px;
+		color: var(--ink);
+	}
+
+	.contact-list a:hover {
+		color: var(--accent);
+	}
+
+	/* Footer */
+	.footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 36px 0 48px;
+		border-top: 1px solid var(--rule);
+		font-size: 12px;
+		color: var(--ink-muted);
+		gap: 16px;
+	}
+
+	.footer a {
+		color: var(--ink-muted);
+	}
+
+	.footer a:hover {
+		color: var(--accent);
+	}
+
 	/* Responsive */
-	@media (max-width: 640px) {
-		.page {
-			padding: 36px 20px 60px;
+	@media (max-width: 860px) {
+		.wrapper {
+			padding: 0 24px;
 		}
 
-		.name {
-			font-size: 30px;
+		.topbar {
+			margin: 0 -24px;
+			padding: 0 24px;
+			height: 56px;
 		}
 
-		.entry-head {
-			flex-direction: column;
-			gap: 2px;
+		.topbar nav {
+			gap: 18px;
 		}
 
-		.entry-period {
-			font-size: 12px;
+		.topbar nav a {
+			font-size: 13px;
 		}
 
-		.deflist {
+		.hero {
+			padding: 64px 0 56px;
+		}
+
+		.currently {
 			grid-template-columns: 1fr;
-			gap: 2px 0;
+			gap: 18px;
 		}
 
-		.deflist dt {
-			margin-top: 10px;
+		.section {
+			padding: 56px 0;
 		}
 
-		.deflist dt:first-child {
-			margin-top: 0;
+		.capabilities,
+		.elsewhere,
+		.stack-grid,
+		.meta-grid {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+
+		.featured {
+			padding: 28px;
+		}
+
+		.timeline li {
+			grid-template-columns: 1fr;
+			gap: 8px;
+		}
+
+		.contact-list li {
+			grid-template-columns: 1fr;
+			gap: 4px;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.topbar nav {
+			display: none;
+		}
+
+		.meta-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.stack-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.footer {
+			flex-wrap: wrap;
 		}
 	}
 </style>
